@@ -19,8 +19,19 @@ function convert(text, map) {
 
 // Copiar al portapapeles
 function copyToClipboard(text) {
-    navigator.clipboard.writeText(text);
-    alert("¡Copiado con éxito!");
+    navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        
+        // Mostrar la notificación
+        toast.classList.add('show');
+        
+        // Esconderla después de 2 segundos
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2000);
+    }).catch(err => {
+        console.error('Error al copiar: ', err);
+    });
 }
 
 // Listener para el input

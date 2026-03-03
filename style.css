@@ -84,3 +84,22 @@ textarea {
 /* Estilos SEO */
 .seo-content { margin-top: 30px; }
 .faq-item h3 { color: var(--accent); }
+/* Notificación Toast */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Escondido abajo */
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0); /* Sube a la pantalla */
+}
